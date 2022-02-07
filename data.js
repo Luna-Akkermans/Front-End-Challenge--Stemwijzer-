@@ -11,3 +11,5 @@ var data = [
         value: 0
     }
 ]
+
+var questionCounter = 0;
