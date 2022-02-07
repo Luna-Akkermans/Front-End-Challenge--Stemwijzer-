@@ -1,17 +1,14 @@
-
-
- 
-
-
-let generateButtons = (amount,array) => {
-    for(var i = 0; i !== amount; i++){
+let generateButtons = (array, functionalityOfButton) => {
+    for(var i = 0; i !== array.length; i++){
         let btn = document.createElement("button");
-        btn.innerHTML = data[i].text;
+        btn.innerHTML = array[i].text;
         btn.setAttribute('button-def', i)
-        btn.addEventListener("click", votingLogic)
-        document.getElementById('main-section').appendChild(btn);
+        btn.addEventListener("click", functionalityOfButton)
+        document.getElementById('button-group').appendChild(btn);
     }
 }
+
+
 
 let generateTextFields = () => {
     console.log(subjects[questionCounter].parties[2].name);
@@ -28,15 +25,47 @@ let generateTextFields = () => {
    
 }
    
+let createInformationElements = () => {
+    var positions = subjects[questionCounter].parties.map(item => item.position)
+        .filter((value, index, self) => self.indexOf(value) === index)
+    for(let i = 0; i < positions.length; i++){
+       
+
+        let ulParent = document.createElement('ul');
+        ulParent.id = `position-list-${positions[i]}`
+        document.getElementById("positions").appendChild(ulParent);
+    }
+
+     for(let i = 0; i < subjects[questionCounter].parties.length; i++){
+         let listItem = document.createElement('li');
+         let opinionSpan = document.createElement('span');
+        if(subjects[questionCounter].parties[i].position == 'pro'){
+            listItem.innerHTML = subjects[questionCounter].parties[i].name
+            opinionSpan.classList.add('w3-hide')
+            listItem.onclick = toggleShow(opinionSpan)
+            opinionSpan.innerHTML = subjects[questionCounter].parties[i].opinion
+            listItem.appendChild(opinionSpan)
+            document.getElementById('position-list-pro').appendChild(listItem)
+        }else if(subjects[questionCounter].parties[i].position == 'contra'){
+            listItem.innerHTML = subjects[questionCounter].parties[i].name
+            document.getElementById('position-list-contra').appendChild(listItem)
+        }else{
+            listItem.innerHTML = subjects[questionCounter].parties[i].name
+            document.getElementById('position-list-none').appendChild(listItem)
+        }
+    }
+}
+
 
 
 
 
 let startVotingPointer = () => {
-    generateButtons(data.length, data);
+    generateButtons(data, votingLogic);
     starterInfo.style.display = 'none';
 
     generateTextFields();
+    createInformationElements();
     
 }
 

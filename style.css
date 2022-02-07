@@ -6,3 +6,8 @@
 body{
     background-image: url(https://trello.com/1/cards/6200dfda07cf1687bcd3595d/attachments/6200dfdb07cf1687bcd35afc/previews/6200dfdb07cf1687bcd35b04/download/image.png);
 }
+
+#positions {
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
