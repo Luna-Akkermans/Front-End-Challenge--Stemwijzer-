@@ -10,14 +10,16 @@
 </head>
 <body>
 
-    <main class="w3-display-middle">
+    <main class="w3-display-middle w3-light-gray w3-round-large">
         <section id="main-section" class="w3-container ">
-            <h2><span class="w3-text-blue">Stem</span>Wijzer</h2>
-            <div id="starterInfo">
-
-                <p>Tweede Kamer­verkiezingen 2021 </p>
-                <button onclick="startVotingPointer()" class="w3-button w3-round w3-blue">Start</button>
+            <h2><span class="w3-text-blue">Stem</span><span>Wijzer</span></h2>
+            <hr>
+            <div id="start" class="w3-padding-24">
+                <p>Tweede Kamerverkiezingen 2021</p>
+                <button id="start-button" class="w3-margin-top w3-blue w3-button">Start</button>
             </div>
+        </section>
+        <section id="votingPointer" class="w3-hide">
             <div id="question-group"></div>
             <div id="button-group"></div>
             <div id="positions"></div>
@@ -27,6 +29,7 @@
     
     <script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
     <script src="data.js"></script>
+    <script src="dom-creation.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
