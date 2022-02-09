@@ -9,3 +9,35 @@ body{
     background-size: cover;
 }
 
+#button-group{
+    margin-top: 25px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#positions{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#question-group{
+    margin-left: 16px;
+}
+
+ul{
+    list-style: none;
+    margin: 20px;
+}
+
+h3{
+    margin: 20px;
+}
+
+#info{
+    display: flex;
+    justify-content: end;
+    border-bottom: solid 5px rgb(194, 187, 187);
+}
