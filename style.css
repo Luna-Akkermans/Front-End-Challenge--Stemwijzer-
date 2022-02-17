@@ -36,8 +36,12 @@ h3{
     margin: 20px;
 }
 
-#info{
+#selectables{
     display: flex;
-    justify-content: end;
-    border-bottom: solid 5px rgb(194, 187, 187);
+    flex-wrap: wrap;
 }
+
+.select-container{
+    width: calc(100% / 3);
+}
+

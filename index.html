@@ -10,27 +10,40 @@
 </head>
 <body>
 
-    <main class="w3-display-middle w3-light-gray w3-round-large">
+    <main class="w3-display-middle w3-light-gray w3-round-large w3-row">
         <section id="main-section" class="w3-container ">
             <h2><span class="w3-text-blue">Stem</span><span>Wijzer</span></h2>
+            <p>Tweede Kamerverkiezingen 2021</p>
             <hr>
             <div id="start" class="w3-padding-24">
-                <p>Tweede Kamerverkiezingen 2021</p>
-                <button id="start-button" class="w3-margin-top w3-blue w3-button">Start</button>
+                <button  id="start-button" class="w3-margin-top w3-blue w3-button">Start</button>
+                <br>
+                <div id="party-size-div">
+                    <input class="w3-check" id="testBox" type="checkbox">
+                    <label>Alleen grote partijen</label>
+                </div>
+                <div id="selectables">
+
+                </div>
             </div>
         </section>
-        <section id="votingPointer" class="w3-hide">
-            <div id="question-group"></div>
+        <section id="votingPointer" class="">
+            <div id="question-group">
+                <span id="question-index"></span>
+                <h4 id="question-title"></h4>
+                <p id="question-p"></p>
+            </div>
             <div id="button-group"></div>
-            <div id="info"></div>
-            <div id="positions" class="w3-hide"></div>
+            <div id="info">
+            </div>
+            <div id="positions" class=""></div>
         </section>
     </main>
-    
+
+
     
     <script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
     <script src="data.js"></script>
-    <script src="dom-creation.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

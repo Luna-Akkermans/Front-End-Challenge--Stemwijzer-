@@ -1,18 +1,30 @@
-var data = [
+var buttonInformation = [
+    {
+        text: "🠔",
+        class: ['w3-button', 'w3-black'],
+        attr: 'back'
+    },
     {
         text: 'Eens',
-        class: ['w3-button', 'w3-green'],
-        value: 0
+        class: ['w3-button', 'w3-green', 'w3-padding-large'],
+        attr: 'pro'
     },{
         text: 'Geen van beide',
         class: ['w3-button', 'w3-dark-grey'],
-        value: 0
+        attr: 'none'
     },
     {
         text: 'Oneens',
         class: ['w3-button', 'w3-red'],
-        value: 0
+        attr: 'contra'
+    },
+    {
+        text: '→',
+        class: ['w3-button', 'w3-teal'],
+        attr: 'next'
+
     }
 ]
 
-var questionCounter = 0;
+
+var answerInformation = []
