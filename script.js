@@ -95,9 +95,6 @@ let  questionInitialize = (i) => {
 
 
 
-
-
-
 let showWeightedOptions = () => {
     subjects.forEach((element, index) => {
         questionGroup.classList.add('w3-hide')
@@ -130,39 +127,56 @@ let showWeightedOptions = () => {
 
 
 let resultShowing = () => {
-    /*Ik krijg antwoorden terug als:
-    var answer = [{
-            party = name;
-            question = index;
-            weight = 0;
-    }]
-    */
    for(var i = 0; i <= parties.length; i++){
         if(document.getElementById(i).checked && answers[i].question == i){
             for(x = 0; x  < answerInformation.length; x++){
-                console.log(answerInformation[x].party)
-            }
-
-
-       
+                answers[i].parties.forEach((element, index) => {
+                    if(element == answerInformation[x].party){
+                        answerInformation[x].votes += 2;
+                    }
+                })
+            }       
         }else{ 
             // if not
+            answers[i].parties.forEach((element, index) => {
+                for(x = 0; x  < answerInformation.length; x++){
+                    if(element == answerInformation[x].party){
+                        answerInformation[x].votes += 1
+                     }
+                }
+            })
         }
     }
+    testDiv.classList.add('w3-hide')
+    result.classList.remove('w3-hide');
+    createList(answerInformation)
+
+
+
 }
 
-// [{party}]
+
+let createList = (array) => {
+    let ul = document.createElement('ul');
+    result.appendChild(ul);
+    let values = array.sort((a, b) => {
+        return b.votes - a.votes;
+    });
+    values.forEach(function (item) {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML  = `${item.party} : Stemmingen eens: ${item['votes']}`
+    })
+
+
+}
+
+
+
+
 
 
 var tempObj = {};
-
-
-
-// var test = {
-//     parties: -,-,-
-//     queston: -,
-
-// }
 
 let testCalc = (counter, statement) => {
     let tempArray = []
@@ -176,42 +190,4 @@ let testCalc = (counter, statement) => {
     }
     
     answers.push(tempObj);
-}
-
-
-
-         // tempObj = {};
-            // tempObj['party'] = subjects[counter].parties[i].name;
-            // tempObj['question'] = counter;
-            // tempArray.push(tempObj)
-function onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
-  }
-
-
-
-
-
-
-// let finalaization = () => {
-//     for(var i = 0; i < answers.length; i++){
-//         if(showParties){
-//             if(parties[i].size >= 10){
-//                 console.log(parties[i].name)
-//                 answerInformation.push({'party': parties[i].name, 'votes': 0})
-//             }
-//         }else{
-//             answerInformation.push({'party': parties[i].name, 'votes': 0})
-//         }
-//     }
-//     }
-let count = [];
-let testFunc = () => {
-    answers.forEach(function (a) {
-        a.forEach(function (b, i) {
-            count[i] = count[i] || {};
-            count[i][b] = (count[i][b] || 0) + 1;
-        });
-    });
-
 }
