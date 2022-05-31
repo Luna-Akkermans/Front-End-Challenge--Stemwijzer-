@@ -163,16 +163,19 @@ let createList = (array) => {
         return b.votes - a.votes;
     });
     values.forEach(function (item) {
+        percentResult = calculatePercent(item.votes);
         let li = document.createElement('li');
         ul.appendChild(li);
-        li.innerHTML  = `${item.party} : Stemmingen eens: ${item['votes']}`
+        li.innerHTML  = `${item.party} Overeenkomst: ${percentResult}%`
     })
 
 
 }
 
-
-
+function calculatePercent(num){
+    perc = (num/3)*10;
+    return Math.floor(perc);
+}
 
 
 
