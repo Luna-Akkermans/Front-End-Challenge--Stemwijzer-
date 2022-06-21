@@ -16,6 +16,7 @@ const questionGroup = document.getElementById("votingPointer");
 const testDiv = document.getElementById("selectables");
 startButton.addEventListener("click", () => {
     startButton.classList.add('w3-hide')
+    document.getElementById('start').classList.add('w3-hide')
     showParties = bigP.checked;
     document.getElementById("party-size-div").classList.add('w3-hide')
     createButtons();
@@ -97,6 +98,8 @@ let  questionInitialize = (i) => {
 
 let showWeightedOptions = () => {
     subjects.forEach((element, index) => {
+        document.getElementById('start').classList.remove('w3-hide')
+
         questionGroup.classList.add('w3-hide')
         let container = document.createElement('div');
         container.classList.add('select-container');
